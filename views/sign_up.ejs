@@ -1,0 +1,57 @@
+<!-- recaptcha script to be include for v3 -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<span id="registration">Register</span>
+<form id="register" class="form-style" action="/users/sign_up" method="POST">
+  <div class="form-group row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Your Name" name="name" id="name" />
+      <!--name of registering user-->
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col">
+      <input type="email" name="email" class="form-control" placeholder="Your Email" id="email" required />
+      <!--Email or phone of registering user-->
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col">
+      <input type="password" name="password" class="form-control" placeholder="Password" id="password" required />
+      <!--password of registering user-->
+    </div>
+    <div class="col">
+      <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password"
+        id="confirm_password" required />
+    </div>
+  </div>
+  <div class="g-recaptcha" data-sitekey="6LcxrwAVAAAAAGV9RIZmfYDIgwc0eyhPHl8QnL6i"></div>
+  <input type="submit" id="submit" />
+</form>
+
+<script>
+  document.getElementById('register').addEventListener('submit', submitForm);
+  function submitForm(e) {
+    e.preventDefault();
+    const name = document.querySelector("#name").value;
+    const email = document.querySelector("#email").value;
+    const password = document.querySelector("#password").value;
+    const confirm_password = document.querySelector("#confirm_password").value;
+    const captcha = document.querySelector("#g-recaptcha-response").value;
+    fetch("/users/sign_up", {
+      method: "POST",
+      headers: {
+        'Accept': "application/json,text/plain,*/*",
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        password: password,
+        confirm_password: confirm_password,
+        captcha: captcha
+      }),
+    })
+      .then((res) => location.reload())
+  }
+</script>

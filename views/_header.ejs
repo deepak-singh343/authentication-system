@@ -1,0 +1,15 @@
+<header>
+  <div id="logo">
+    <a href='/'>Auth System</a>
+  </div>
+  <div id="nav">
+    <ul>
+      <% if(locals.user){ %>
+      <li><a href="/users/sign-out">Sign Out</a></li>
+      <% }else{ %>
+      <li><a href="/users/sign-in">Sign In</a></li>
+      <li><a href="/">Sign Up</a></li>
+      <% } %>
+    </ul>
+  </div>
+</header>

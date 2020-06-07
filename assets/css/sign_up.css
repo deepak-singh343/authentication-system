@@ -1,0 +1,27 @@
+#register {
+  width: 50%;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top: 170px;
+  margin: auto;
+}
+#registration{
+  position: absolute;
+  width:100%;
+  left: 45%;
+  top: 120px;
+  font-size: 1.8em;
+  font-weight:700;
+}
+#submit {
+  background: #69a74e;
+  border: 0.2px solid rgb(36, 184, 48);
+  color: white;
+  padding: 10px 40px;
+  text-decoration: none;
+  cursor: pointer;
+  position: absolute;
+  left: 40%;
+}
