@@ -32,10 +32,6 @@ module.exports.create = function (req, res) {
         User.create(req.body, function (err, user) {
           if (err)
             console.log("error", err);
-
-          // req.flash('success', 'User added Successfully');
-          // return res.json({ 'success': true, 'message': 'successfully added' });
-          // or simply
           return res.json({ 'success': true, 'message': req.flash('success', 'User added successfully') });
         });
       }
