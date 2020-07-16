@@ -5,9 +5,9 @@
   <div id="nav">
     <ul>
       <% if(locals.user){ %>
-      <li><a href="/users/sign-out">Sign Out</a></li>
+      <li><a href="/users/sign-out">Sign Out</a></li>           <!--if user is logged in then only show signout -->
       <% }else{ %>
-      <li><a href="/users/sign-in">Sign In</a></li>
+      <li><a href="/users/sign-in">Sign In</a></li>             <!--if user is logged out then only show signin and signup -->
       <li><a href="/">Sign Up</a></li>
       <% } %>
     </ul>

@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 //connect to the authentication system database
-mongoose.connect("mongodb://localhost/auth_system");
+mongoose.connect("mongodb://localhost/auth_system",{ useNewUrlParser: true,useUnifiedTopology: true });
 
 //check if connected to the database
 const db = mongoose.connection;
